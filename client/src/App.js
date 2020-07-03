@@ -1,23 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+
+// Import components
+import NameTag from './components/nameTag';
+import Input from './components/Input';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='App'>
+      <header className='App-header'>
+        <h1>Name List</h1>
+        <NameTag firstname='Jill' lastname='Jorgenson' />
+        <NameTag firstname='Joan' lastname='Americason' />
+        <NameTag firstname='James' lastname='Joanson' />
+        <NameTag />
+        <Input placeholder='Enter here' type='text' />
       </header>
     </div>
   );
