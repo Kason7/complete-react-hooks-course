@@ -11,7 +11,7 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <h1>Name List</h1>
-        <NameTag firstname='Jill' lastname='Jorgenson' />
+        <NameTag firstname='Jilly' lastname='Jorgenson' />
         <NameTag firstname='Joan' lastname='Americason' />
         <NameTag firstname='James' lastname='Joanson' />
         <NameTag />
