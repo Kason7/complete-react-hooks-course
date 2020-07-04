@@ -5,8 +5,16 @@ import './App.scss';
 import NameTag from './components/nameTag';
 import Input from './components/Input';
 
-const initialNames = [{ name: 'Jilly' }, { name: 'Joan' }, { name: 'James' }];
-const changedNames = [{ name: 'Birger' }, { name: 'Børge' }, { name: 'Benny' }];
+const initialNames = [
+  { name: 'Jilly', lastname: 'Jorgenson' },
+  { name: 'Joan', lastname: 'Americason' },
+  { name: 'James', lastname: 'Joanson' },
+];
+const changedNames = [
+  { name: 'Birger', lastname: 'Halløjson' },
+  { name: 'Børge', lastname: 'Jepson' },
+  { name: 'Benny', lastname: 'Nopeson' },
+];
 let nameToggler = false;
 
 function App() {
@@ -32,15 +40,24 @@ function App() {
     setAge(newAge);
   };
 
+  // Map over name tag list items
+  const nameTags = () =>
+    name.map((nameTagContent, index) => {
+      return (
+        <NameTag
+          key={index}
+          firstname={nameTagContent.name}
+          lastname={nameTagContent.lastname}
+        />
+      );
+    });
+
   // Component body
   return (
     <div className='App'>
       <header className='App-header'>
-        <h1 onClick={changeName}>Name List</h1>
-        <NameTag firstname={name[0].name} lastname='Jorgenson' />
-        <NameTag firstname={name[1].name} lastname='Americason' />
-        <NameTag firstname={name[2].name} lastname='Joanson' />
-        <NameTag />
+        <h1 onClick={changeName}>Name List (Click me)</h1>
+        {nameTags()}
         <Input placeholder='Enter here' type='text' />
         <button onClick={ageDown}>-</button>
         <h2>Age: {age}</h2>
