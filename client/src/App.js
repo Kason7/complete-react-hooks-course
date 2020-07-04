@@ -5,8 +5,22 @@ import './App.scss';
 import NameTag from './components/nameTag';
 import Input from './components/Input';
 
+const initialNames = [{ name: 'Jilly' }, { name: 'Joan' }, { name: 'James' }];
+const changedNames = [{ name: 'Birger' }, { name: 'Børge' }, { name: 'Benny' }];
+let nameToggler = false;
+
 function App() {
-  // Initial state
+  // Initial state for names
+  const [name, setName] = useState(initialNames, nameToggler);
+  // State methods
+  const changeName = () => {
+    nameToggler = !nameToggler;
+
+    setName(nameToggler ? changedNames : initialNames);
+    console.log(nameToggler);
+  };
+
+  // Initial state for age
   const [age, setAge] = useState(21);
   // State methods
   const ageUp = () => {
@@ -22,10 +36,10 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <h1>Name List</h1>
-        <NameTag firstname='Jilly' lastname='Jorgenson' />
-        <NameTag firstname='Joan' lastname='Americason' />
-        <NameTag firstname='James' lastname='Joanson' />
+        <h1 onClick={changeName}>Name List</h1>
+        <NameTag firstname={name[0].name} lastname='Jorgenson' />
+        <NameTag firstname={name[1].name} lastname='Americason' />
+        <NameTag firstname={name[2].name} lastname='Joanson' />
         <NameTag />
         <Input placeholder='Enter here' type='text' />
         <button onClick={ageDown}>-</button>
