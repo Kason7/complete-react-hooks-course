@@ -9,6 +9,9 @@ import Timer from './components/Timer';
 import FetchGithub from './components/FetchGithub';
 import MemoExample from './components/MemoExample';
 
+// Import custom hooks
+import usePrevious from './hooks/usePrevious';
+
 // Data
 const nameTagData = [
   { firstname: 'Jill', lastname: 'Jorgenson' },
@@ -58,6 +61,10 @@ function App() {
       );
     });
 
+  // State for usePrevious example
+  const [age2, setAge2] = useState(21);
+  const previousAge = usePrevious(age2);
+
   // Component body
   return (
     <div className='App'>
@@ -75,11 +82,18 @@ function App() {
             <button onClick={ageDown}>-</button>
             <hr />
             <MemoExample />
+            <hr />
           </div>
           <div>
             <Lifecycle />
             <Timer />
             <FetchGithub />
+            <div>
+              <h2>usePrevious Example</h2>
+              <p>Current age: {age2}</p>
+              <p>Previous age: {previousAge}</p>
+              <button onClick={() => setAge2(age2 - 1)}>Make me younger</button>
+            </div>
           </div>
         </div>
       </header>
