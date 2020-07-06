@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
-import './App.scss';
+import '../App.scss';
 
 // Import components
-import Home from './containers/Home';
-import NameTag from './components/nameTag';
-import Input from './components/Input';
-import Lifecycle from './components/Lifecycle';
-import Timer from './containers/Timer';
-import FetchGithub from './containers/FetchGithub';
-import MemoExample from './components/MemoExample';
-import Nav from './components/Nav';
-import MeasureElement from './containers/MeasureElement';
+import NameTag from '../components/nameTag';
+import Input from '../components/Input';
+import Lifecycle from '../components/Lifecycle';
+import FetchGithub from './FetchGithub';
+import MemoExample from '../components/MemoExample';
 
 // Import custom hooks
-import usePrevious from './hooks/usePrevious';
+import usePrevious from '../hooks/usePrevious';
 
 // Data
 const nameTagData = [
@@ -32,7 +27,7 @@ const changedNames = [
 ];
 let nameToggler = false;
 
-function App() {
+function Home() {
   // Initial state for names
   const [name, setName] = useState(nameTagData, nameToggler);
   // State methods
@@ -71,22 +66,30 @@ function App() {
 
   // Component body
   return (
-    <BrowserRouter>
-      <div className='App'>
-        <header className='App-header'>
-          <Nav />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/lifecycle' component={Lifecycle} />
-            <Route exact path='/timer' component={Timer} />
-            <Route exact path='/fetch' component={FetchGithub} />
-            <Route exact path='/memo' component={MemoExample} />
-            <Route exact path='/measure' component={MeasureElement} />
-          </Switch>
-        </header>
+    <>
+      <h1>Course Resources</h1>
+      <div className='course-resource-container'>
+        <div>
+          <h2>Name List</h2>
+          <button onClick={changeName}>Change names</button>
+          {NameTags()}
+          <Input placeholder='Enter here' type='text' />
+
+          <h2>Age: {age}</h2>
+          <button onClick={ageUp}>+</button>
+          <button onClick={ageDown}>-</button>
+        </div>
+        <div>
+          <div>
+            <h2>usePrevious Example</h2>
+            <p>Current age: {age2}</p>
+            <p>Previous age: {previousAge}</p>
+            <button onClick={() => setAge2(age2 - 1)}>Make me younger</button>
+          </div>
+        </div>
       </div>
-    </BrowserRouter>
+    </>
   );
 }
 
-export default App;
+export default Home;
