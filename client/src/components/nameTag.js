@@ -11,8 +11,8 @@ export const nameTag = (props) => {
 
   return (
     <>
-      <h3>{props.firstname}</h3>
-      <h2>{props.lastname}</h2>
+      <p>{props.firstname}</p>
+      <p>{props.lastname}</p>
       {props.firstname === 'Joan' && <div style={{ color: 'green' }}>VIP</div>}
     </>
   );
