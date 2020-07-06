@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 
 // Import components
@@ -17,10 +17,40 @@ const nameTagData = [
   { firstname: '', lastname: '' },
 ];
 
+const changedNames = [
+  { firstname: 'Birger', lastname: 'Halløjson' },
+  { firstname: 'Børge', lastname: 'Jepson' },
+  { firstname: 'Benny', lastname: 'Nopeson' },
+  { firstname: '', lastname: '' },
+];
+let nameToggler = false;
+
 function App() {
+  // Initial state for names
+  const [name, setName] = useState(nameTagData, nameToggler);
+  // State methods
+  const changeName = () => {
+    nameToggler = !nameToggler;
+
+    setName(nameToggler ? changedNames : nameTagData);
+    console.log(nameToggler);
+  };
+
+  // Initial state for age
+  const [age, setAge] = useState(21);
+  // State methods
+  const ageUp = () => {
+    const newAge = age + 1;
+    setAge(newAge);
+  };
+  const ageDown = () => {
+    const newAge = age - 1;
+    setAge(newAge);
+  };
+
   // Map function for name tags
   const NameTags = () =>
-    nameTagData.map((nameTag, index) => {
+    name.map((nameTag, index) => {
       return (
         <div className='name-tag-container' key={index}>
           <NameTag firstname={nameTag.firstname} lastname={nameTag.lastname} />
@@ -36,8 +66,14 @@ function App() {
         <div className='course-resource-container'>
           <div>
             <h2>Name List</h2>
+            <button onClick={changeName}>Change names</button>
             {NameTags()}
             <Input placeholder='Enter here' type='text' />
+
+            <h2>Age: {age}</h2>
+            <button onClick={ageUp}>+</button>
+            <button onClick={ageDown}>-</button>
+            <hr />
             <MemoExample />
           </div>
           <div>
