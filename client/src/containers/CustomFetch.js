@@ -18,7 +18,7 @@ export const CustomFetch = () => {
       <h2>Response:</h2>
       {loading && url && <div>Loading ...</div>}
 
-      {data && data.rData && data.rData.followers && (
+      {!loading && data && data.rData && data.rData.followers && (
         <div>Followers: {data.rData.followers}</div>
       )}
       {error && <div>Error: {error} </div>}
