@@ -10,6 +10,7 @@ export const Nav = () => {
       <Link to='/fetch'>Fetch</Link>
       <Link to='/memo'>Memo</Link>
       <Link to='/measure'>Measure</Link>
+      <Link to='/custom'>Custom Fetch</Link>
     </nav>
   );
 };

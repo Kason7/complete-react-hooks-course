@@ -12,6 +12,7 @@ import FetchGithub from './containers/FetchGithub';
 import MemoExample from './components/MemoExample';
 import Nav from './components/Nav';
 import MeasureElement from './containers/MeasureElement';
+import CustomFetch from './containers/CustomFetch';
 
 // Import custom hooks
 import usePrevious from './hooks/usePrevious';
@@ -82,6 +83,7 @@ function App() {
             <Route exact path='/fetch' component={FetchGithub} />
             <Route exact path='/memo' component={MemoExample} />
             <Route exact path='/measure' component={MeasureElement} />
+            <Route exact path='/custom' component={CustomFetch} />
           </Switch>
         </header>
       </div>
