@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Import styling
+import '../App.scss';
+
 export const Nav = () => {
   return (
-    <nav>
+    <nav className='nav-links'>
       <Link to='/'>Home</Link>
       <Link to='/lifecycle'>Lifecycle</Link>
       <Link to='/timer'>Timer</Link>
