@@ -1,19 +1,47 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 // Import styling
 import '../App.scss';
 
+const activeNavStyle = {
+  color: 'green',
+};
+
 export const Nav = () => {
   return (
     <nav className='nav-links'>
-      <Link to='/'>Home</Link>
-      <Link to='/lifecycle'>Lifecycle</Link>
-      <Link to='/timer'>Timer</Link>
-      <Link to='/fetch'>Fetch</Link>
-      <Link to='/memo'>Memo</Link>
-      <Link to='/measure'>Measure</Link>
-      <Link to='/custom'>Custom Fetch</Link>
+      <NavLink activeStyle={activeNavStyle} exact to='/'>
+        Home
+      </NavLink>
+      <NavLink activeStyle={activeNavStyle} exact to='/lifecycle'>
+        Lifecycle
+      </NavLink>
+      <NavLink activeStyle={activeNavStyle} exact to='/timer'>
+        Timer
+      </NavLink>
+      <NavLink activeStyle={activeNavStyle} exact to='/fetch'>
+        Fetch
+      </NavLink>
+      <NavLink activeClassName='active-nav-styling' exact to='/memo'>
+        Memo
+      </NavLink>
+      <NavLink activeClassName='active-nav-styling' exact to='/measure'>
+        Measure
+      </NavLink>
+      <NavLink activeClassName='active-nav-styling' exact to='/custom'>
+        Custom Fetch
+      </NavLink>
+      <NavLink activeClassName='active-nav-styling' exact to='/about'>
+        About
+      </NavLink>
+      <NavLink
+        activeClassName='active-nav-styling'
+        exact
+        to='/user/Kasper/Sonne'
+      >
+        User: Kasper Sonne
+      </NavLink>
     </nav>
   );
 };

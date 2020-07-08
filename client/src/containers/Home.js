@@ -4,9 +4,6 @@ import '../App.scss';
 // Import components
 import NameTag from '../components/nameTag';
 import Input from '../components/Input';
-import Lifecycle from '../components/Lifecycle';
-import FetchGithub from './FetchGithub';
-import MemoExample from '../components/MemoExample';
 
 // Import custom hooks
 import usePrevious from '../hooks/usePrevious';
